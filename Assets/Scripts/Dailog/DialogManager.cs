@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System;
 
 public class DialogManager : MonoBehaviour
 {
-
+    private int questionTotal,questionsRight;
     private Queue<string> sentences;
     private List<string> buttonTextQuestions;
     public GameObject dialogueUI,questionUI;
@@ -61,19 +62,27 @@ public class DialogManager : MonoBehaviour
     textDialogueUI.text = sentence;
    }
 
-   void EndDialogue(){
+  public void EndDialogue(){
     dialogueUI.SetActive(false);
     Time.timeScale = 1f;
     Debug.Log("End");
    }
    public void RightAnswer(){
     Time.timeScale = 1f;
-    questionUI.SetActive(false);
+    questionTotal =+ 1;
+    questionsRight =+1;
     textQuestionUI.text = "You got it right!!!!!";
+    Invoke("ChangeScene", 2.5f);
    }
   public void WrongAnswer(){
     Time.timeScale = 1f;
-    questionUI.SetActive(false);
+    questionTotal =+ 1;
     textQuestionUI.text = "You got it Wrong!!!!!";
+    Invoke("ChangeScene", 2.5f);
+   
+   }
+   public void ChangeScene(){
+    questionUI.SetActive(false);
+    SceneManager.LoadScene("GameScene_TurnBattleSystem", LoadSceneMode.Additive);
    }
 }
