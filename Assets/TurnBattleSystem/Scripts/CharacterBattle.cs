@@ -1,14 +1,4 @@
-﻿/* 
-    ------------------- Code Monkey -------------------
 
-    Thank you for downloading this package
-    I hope you find it useful in your projects
-    If you have any questions let me know
-    Cheers!
-
-               unitycodemonkey.com
-    --------------------------------------------------
- */
 
 using System;
 using System.Collections;
@@ -83,8 +73,6 @@ public class CharacterBattle : MonoBehaviour {
 
             float reachedDistance = 1f;
             if (Vector3.Distance(GetPosition(), slideTargetPosition) < reachedDistance) {
-                // Arrived at Slide Target Position
-                //transform.position = slideTargetPosition;
                 onSlideComplete();
             }
             break;
@@ -119,7 +107,7 @@ public class CharacterBattle : MonoBehaviour {
     public void Attack(CharacterBattle targetCharacterBattle, Action onAttackComplete) {
         Vector3 slideTargetPosition = targetCharacterBattle.GetPosition() + (GetPosition() - targetCharacterBattle.GetPosition()).normalized * 10f;
         Vector3 startingPosition = GetPosition();
-
+        int damageAmount;
         // Slide to Target
         SlideToPosition(slideTargetPosition, () => {
             // Arrived at Target, attack him
@@ -127,7 +115,11 @@ public class CharacterBattle : MonoBehaviour {
             Vector3 attackDir = (targetCharacterBattle.GetPosition() - GetPosition()).normalized;
             characterBase.PlayAnimAttack(attackDir, () => {
                 // Target hit
-                int damageAmount = UnityEngine.Random.Range(20, 50);
+                if (isPlayerTeam) {
+                 damageAmount = 50;
+                }else{
+                 damageAmount = 30; 
+                }
                 targetCharacterBattle.Damage(this, damageAmount);
                 }, () => {
                 // Attack completed, slide back
@@ -137,6 +129,7 @@ public class CharacterBattle : MonoBehaviour {
                     characterBase.PlayAnimIdle(attackDir);
                     onAttackComplete();
                 });
+                
             });
         });
     }
