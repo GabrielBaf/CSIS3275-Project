@@ -26,7 +26,7 @@ public class RegisterMenu : MonoBehaviour
             usernameText = username.text;
             passwdText = password.text;
             emailText = email.text;
-            phone = phoneNumber.text;
+            phone = int.Parse(phoneNumber.text);
         }
     }
 }

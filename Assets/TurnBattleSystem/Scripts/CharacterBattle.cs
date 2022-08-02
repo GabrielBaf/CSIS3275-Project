@@ -116,9 +116,10 @@ public class CharacterBattle : MonoBehaviour {
             characterBase.PlayAnimAttack(attackDir, () => {
                 // Target hit
                 if (isPlayerTeam) {
-                 damageAmount = 50;
+                //int damageAmount = UnityEngine.Random.Range(20, 50);
+                damageAmount = UnityEngine.Random.Range(35,55);
                 }else{
-                 damageAmount = 30; 
+                damageAmount = UnityEngine.Random.Range(20,35); 
                 }
                 targetCharacterBattle.Damage(this, damageAmount);
                 }, () => {
