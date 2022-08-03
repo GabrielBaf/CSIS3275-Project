@@ -510,7 +510,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pfCharacterBattle: {fileID: 7721603974982762705, guid: f1f57204e3c9d3b4d8de220bf844658e, type: 3}
-  playerSpritesheet: {fileID: 2800000, guid: 99b898971bb2a6d418d5e738489c3fbe, type: 3}
+  playerSpritesheet: {fileID: 2800000, guid: da0f1f484e93611478cb0c67da8486e1, type: 3}
+  healerSpritesheet: {fileID: 2800000, guid: 8901d95b148a5f045a82b484c1010549, type: 3}
+  tankSpritesheet: {fileID: 2800000, guid: 99b898971bb2a6d418d5e738489c3fbe, type: 3}
   enemySpritesheet: {fileID: 2800000, guid: 485aac2909f59d141a657b9a29ddf608, type: 3}
 --- !u!4 &622812125
 Transform:
@@ -1685,6 +1687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa0f4981401a3544972ec2fcf4f92d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!850595691 &1791538077
 LightingSettings:
   m_ObjectHideFlags: 0

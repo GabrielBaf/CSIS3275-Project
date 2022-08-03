@@ -33,11 +33,15 @@ public class CharacterBattle : MonoBehaviour {
     private void Start() {
     }
 
-    public void Setup(bool isPlayerTeam) {
+    public void Setup(bool isPlayerTeam,bool isHealer) {
         this.isPlayerTeam = isPlayerTeam;
         if (isPlayerTeam) {
             characterBase.SetAnimsSwordTwoHandedBack();
             characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().playerSpritesheet;
+            if(isHealer){
+                 characterBase.SetAnimsSwordTwoHandedBack();
+                characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().healerSpritesheet;
+            }
         } else {
             characterBase.SetAnimsSwordShield();
             characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().enemySpritesheet;
@@ -134,7 +138,30 @@ public class CharacterBattle : MonoBehaviour {
             });
         });
     }
-
+     public void SpecialAttack(CharacterBattle targetCharacterBattle, Action onAttackComplete) {
+        Vector3 slideTargetPosition = targetCharacterBattle.GetPosition() + (GetPosition() - targetCharacterBattle.GetPosition()).normalized * 10f;
+        Vector3 startingPosition = GetPosition();
+        int SpecialdamageAmount = 100;
+        // Slide to Target
+        SlideToPosition(slideTargetPosition, () => {
+            // Arrived at Target, attack him
+            state = State.Busy;
+            Vector3 attackDir = (targetCharacterBattle.GetPosition() - GetPosition()).normalized;
+            characterBase.PlayAnimAttack(attackDir, () => {
+              
+                targetCharacterBattle.Damage(this, SpecialdamageAmount);
+                }, () => {
+                // Attack completed, slide back
+                SlideToPosition(startingPosition, () => {
+                    // Slide back completed, back to idle
+                    state = State.Idle;
+                    characterBase.PlayAnimIdle(attackDir);
+                    onAttackComplete();
+                });
+                
+            });
+        });
+    }
     private void SlideToPosition(Vector3 slideTargetPosition, Action onSlideComplete) {
         this.slideTargetPosition = slideTargetPosition;
         this.onSlideComplete = onSlideComplete;

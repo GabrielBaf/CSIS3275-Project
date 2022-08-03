@@ -1,14 +1,4 @@
-﻿/* 
-    ------------------- Code Monkey -------------------
-
-    Thank you for downloading this package
-    I hope you find it useful in your projects
-    If you have any questions let me know
-    Cheers!
-
-               unitycodemonkey.com
-    --------------------------------------------------
- */
+﻿
 
 using System.Collections;
 using System.Collections.Generic;
@@ -25,9 +15,13 @@ public class BattleHandler : MonoBehaviour {
 
     [SerializeField] private Transform pfCharacterBattle;
     public Texture2D playerSpritesheet;
+    public Texture2D healerSpritesheet;
+    public Texture2D tankSpritesheet;
     public Texture2D enemySpritesheet;
-
+    public static bool healerUnlocked = true, tankUnlocked;
     private CharacterBattle playerCharacterBattle;
+    private CharacterBattle healerCharacterBattle;
+    private CharacterBattle tankCharacterBattle;
     private CharacterBattle enemyCharacterBattle;
     private CharacterBattle activeCharacterBattle;
     private State state;
@@ -42,8 +36,11 @@ public class BattleHandler : MonoBehaviour {
     }
 
     private void Start() {
-        playerCharacterBattle = SpawnCharacter(true);
-        enemyCharacterBattle = SpawnCharacter(false);
+        if(healerUnlocked){
+        healerCharacterBattle =SpawnCharacter(true,true);
+        }
+        playerCharacterBattle = SpawnCharacter(true,false);
+        enemyCharacterBattle = SpawnCharacter(false,false);
 
         SetActiveCharacterBattle(playerCharacterBattle);
         state = State.WaitingForPlayer;
@@ -57,19 +54,28 @@ public class BattleHandler : MonoBehaviour {
                     ChooseNextActiveCharacter();
                 });
             }
+            if (Input.GetKeyDown(KeyCode.R)) {
+                state = State.Busy;
+                playerCharacterBattle.SpecialAttack(enemyCharacterBattle, () => {
+                    ChooseNextActiveCharacter();
+                });
+            }
         }
     }
 
-    private CharacterBattle SpawnCharacter(bool isPlayerTeam) {
+    private CharacterBattle SpawnCharacter(bool isPlayerTeam,bool isHealer) {
         Vector3 position;
-        if (isPlayerTeam) {
+        if (isPlayerTeam) {            
             position = new Vector3(-50, 0);
+            if(isHealer){
+                position = new Vector3(-45, 10);
+            }
         } else {
             position = new Vector3(+50, 0);
         }
         Transform characterTransform = Instantiate(pfCharacterBattle, position, Quaternion.identity);
         CharacterBattle characterBattle = characterTransform.GetComponent<CharacterBattle>();
-        characterBattle.Setup(isPlayerTeam);
+        characterBattle.Setup(isPlayerTeam,isHealer);
 
         return characterBattle;
     }
