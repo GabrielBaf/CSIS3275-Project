@@ -9,9 +9,10 @@ using System;
 public class DialogManager : MonoBehaviour
 {
     private int questionTotal,questionsRight;
+   
     private Queue<string> sentences;
     private List<string> buttonTextQuestions;
-    public GameObject dialogueUI,questionUI;
+    public GameObject dialogueUI,questionUI,player;
     public TMP_Text textDialogueUI,nameDialogueUI;
     public TMP_Text textQuestionUI,nameQuestionUI;
     public TMP_Text[] buttonsQuestions;
@@ -68,20 +69,22 @@ public class DialogManager : MonoBehaviour
     Debug.Log("End");
    }
    public void RightAnswer(){
-    Time.timeScale = 1f;
+    BattleHandler.healerUnlocked = true;
     questionTotal =+ 1;
     questionsRight =+1;
     textQuestionUI.text = "You got it right!!!!!";
     Invoke("ChangeScene", 2.5f);
    }
   public void WrongAnswer(){
-    Time.timeScale = 1f;
+    
     questionTotal =+ 1;
     textQuestionUI.text = "You got it Wrong!!!!!";
     Invoke("ChangeScene", 2.5f);
    
    }
    public void ChangeScene(){
+    //player.SetActive(false);
+    
     questionUI.SetActive(false);
     SceneManager.LoadScene("GameScene_TurnBattleSystem", LoadSceneMode.Additive);
    }
