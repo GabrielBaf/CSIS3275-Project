@@ -12,7 +12,7 @@ public class CharacterBattle : MonoBehaviour {
     private State state;
     private Vector3 slideTargetPosition;
     private Action onSlideComplete;
-    private bool isPlayerTeam;
+    public bool isPlayerTeam,isHealer;
     private GameObject selectionCircleGameObject;
     private HealthSystem healthSystem;
     private World_Bar healthBar;
@@ -33,8 +33,9 @@ public class CharacterBattle : MonoBehaviour {
     private void Start() {
     }
 
-    public void Setup(bool isPlayerTeam,bool isHealer) {
+    public void Setup(bool isPlayerTeam,bool isHealer,bool isEnemy2,bool isEnemy3) {
         this.isPlayerTeam = isPlayerTeam;
+        this.isHealer = isHealer;
         if (isPlayerTeam) {
             characterBase.SetAnimsSwordTwoHandedBack();
             characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().playerSpritesheet;
@@ -43,8 +44,16 @@ public class CharacterBattle : MonoBehaviour {
                 characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().healerSpritesheet;
             }
         } else {
+            if(isEnemy2){
+            characterBase.SetAnimsSwordShield();
+            characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().enemySpritesheet2;
+            }else if(isEnemy3){
+                characterBase.SetAnimsSwordShield();
+            characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().enemySpritesheet3;
+            }else{
             characterBase.SetAnimsSwordShield();
             characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().enemySpritesheet;
+            }
         }
         healthSystem = new HealthSystem(100);
         healthBar = new World_Bar(transform, new Vector3(0, 10), new Vector3(12, 1.7f), Color.grey, Color.red, 1f, 100, new World_Bar.Outline { color = Color.black, size = .6f });
