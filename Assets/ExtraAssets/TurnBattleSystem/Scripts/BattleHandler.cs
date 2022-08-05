@@ -19,25 +19,22 @@ public class BattleHandler : MonoBehaviour {
     public Texture2D healerSpritesheet;
     public Texture2D tankSpritesheet;
     public Texture2D enemySpritesheet;
+    public Texture2D enemySpritesheet2;
+    public Texture2D enemySpritesheet3;
+    
     public static bool healerUnlocked = true, tankUnlocked;
-    public static bool healerMoving,tankMoving;
-    private int checkNextAtack = 0;
+    public static bool healerMoving,tankMoving,enemys2 = true,enemys3;
     private CharacterBattle playerCharacterBattle;
-    private CharacterBattle waitingTime;
     private CharacterBattle healerCharacterBattle;
     private CharacterBattle tankCharacterBattle;
     private CharacterBattle enemyCharacterBattle;
+    private CharacterBattle enemyCharacterBattle2;
+    private CharacterBattle enemyCharacterBattle3;
     private CharacterBattle activeCharacterBattle;
     private State state;
     private List<CharacterBattle> characterBattleList = new List<CharacterBattle>();
 
-    public enum LanePosition {
-        Middle,
-        Up,
-        Down,
-        Top,
-        Bottom,
-    }
+
     private enum State {
         WaitingForPlayer,
         Busy,
@@ -49,20 +46,28 @@ public class BattleHandler : MonoBehaviour {
     }
 
     private void Start() {
+        playerCharacterBattle = SpawnCharacter(true,false,false,false);
+        enemyCharacterBattle = SpawnCharacter(false,false,false,false);
         if(healerUnlocked){
-        healerCharacterBattle =SpawnCharacter(true,true);
+        healerCharacterBattle = SpawnCharacter(true,true,false,false);
         }
-        playerCharacterBattle = SpawnCharacter(true,false);
-        enemyCharacterBattle = SpawnCharacter(false,false);
-
+        if(enemys2){
+            Debug.Log("inimigo 2");
+            enemyCharacterBattle2 = SpawnCharacter(false,false,true,false);
+        }
+        // if(enemys3){
+        //     enemyCharacterBattle3 = SpawnCharacter(false,false,false,true);
+        // }
         SetActiveCharacterBattle(playerCharacterBattle);
         state = State.WaitingForPlayer;
     }
 
     private void Update() {
         if (state == State.WaitingForPlayer) {
+            
             if(healerMoving == true){
                 if (Input.GetKeyDown(KeyCode.Space)) {
+                SetActiveCharacterBattle(enemyCharacterBattle);
                 state = State.Busy;
 
                 healerCharacterBattle.Attack(enemyCharacterBattle, () => {
@@ -72,7 +77,7 @@ public class BattleHandler : MonoBehaviour {
             }
                 if (Input.GetKeyDown(KeyCode.R)) {
                 state = State.Busy;
-
+                SetActiveCharacterBattle(enemyCharacterBattle);
                 healerCharacterBattle.SpecialAttack(enemyCharacterBattle, () => {
                     ChooseNextActiveCharacter();
                 });
@@ -96,7 +101,7 @@ public class BattleHandler : MonoBehaviour {
     }
     }
 
-    private CharacterBattle SpawnCharacter(bool isPlayerTeam,bool isHealer) {
+    private CharacterBattle SpawnCharacter(bool isPlayerTeam,bool isHealer,bool isEnemy2,bool isEnemy3) {
         Vector3 position;
         if (isPlayerTeam) {
             position = new Vector3(-50, 0);
@@ -104,12 +109,18 @@ public class BattleHandler : MonoBehaviour {
                 position = new Vector3(-45, 10);
             }
         } else {
-            position = new Vector3(+50, 0);
+            if(isEnemy2){
+            Debug.Log("enemy 2 position");
+            position = new Vector3(+40, 10);
+            }else{
+                position = new Vector3(+50, 0);
+            }
+            
         }
         Transform characterTransform = Instantiate(pfCharacterBattle, position, Quaternion.identity);
         CharacterBattle characterBattle = characterTransform.GetComponent<CharacterBattle>();
-        characterBattle.Setup(isPlayerTeam,isHealer);
-
+        characterBattle.Setup(isPlayerTeam,isHealer,isEnemy2,isEnemy3);
+        characterBattleList.Add(characterBattle);
         return characterBattle;
     }
 
@@ -130,58 +141,57 @@ public class BattleHandler : MonoBehaviour {
         if (activeCharacterBattle == playerCharacterBattle) {
             SetActiveCharacterBattle(enemyCharacterBattle);
             state = State.Busy;
-
-            Debug.Log("player atack");
+             healerMoving = false;
             enemyCharacterBattle.Attack(playerCharacterBattle, () => {
                 ChooseNextActiveCharacter();
             });
-        }
+        
         // if(activeCharacterBattle == healerCharacterBattle){
-        //    SetActiveCharacterBattle(playerCharacterBattle);
+        //    SetActiveCharacterBattle(enemyCharacterBattle);
         //     state = State.Busy;
         //      Debug.Log("healer turn");
         //      enemyCharacterBattle.Attack(healerCharacterBattle, () => {
         //      ChooseNextActiveCharacter();
         //      });
         // }
-        if(healerCharacterBattle == activeCharacterBattle){
-            SetActiveCharacterBattle(enemyCharacterBattle);
-            Debug.Log("healer turn");
-            healerMoving = true;
+        // if(healerCharacterBattle == activeCharacterBattle){
+        //     SetActiveCharacterBattle(enemyCharacterBattle);
+           
+        //     healerMoving = true;
 
-            state = State.Busy;
-            // enemyCharacterBattle.Attack(healerCharacterBattle, () => {
-            //     ChooseNextActiveCharacter();
-            // });
-            ChooseNextActiveCharacter();
-        }
-        else
+        //     state = State.Busy;
+        //     enemyCharacterBattle.Attack(healerCharacterBattle, () => {
+        //         ChooseNextActiveCharacter();
+        //     });
+        //     ChooseNextActiveCharacter();
+        // }
         // if(activeCharacterBattle == enemyCharacterBattle)
-        {
-            if(checkNextAtack == 0){
-            Debug.Log("enemy atack");
+        // {
+        //     if(checkNextAtack == 0){
+         }if(activeCharacterBattle == enemyCharacterBattle){  
                SetActiveCharacterBattle(healerCharacterBattle);
                 state = State.WaitingForPlayer;
-                checkNextAtack = 1;
-                Debug.Log("go to healer");
-
-            }else{
+                healerMoving = true;
+         }else{
                 SetActiveCharacterBattle(playerCharacterBattle);
                 state = State.WaitingForPlayer;
-                checkNextAtack = 0;
-                 healerMoving = false;
-                Debug.Log("go to player");
-            }
-            //    healerMoving = true;
-
-            //    ChooseNextActiveCharacter();
+                healerMoving = false;
+         }
+            // }else{
+            //     SetActiveCharacterBattle(playerCharacterBattle);
+            //     state = State.WaitingForPlayer;
+            //     checkNextAtack = 0;
+            //     healerMoving = false;
+                
+            // }
+               
         }
 
-     }
+     
 
 
     private bool TestBattleOver() {
-        if (playerCharacterBattle.IsDead()) {
+        if (playerCharacterBattle.IsDead() && healerCharacterBattle.IsDead()) {
             // Player dead, enemy wins
             //CodeMonkey.CMDebug.TextPopupMouse("Enemy Wins!");
             BattleOverWindow.Show_Static("Enemy Wins!");
