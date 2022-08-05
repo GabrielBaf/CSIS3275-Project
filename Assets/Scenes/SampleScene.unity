@@ -88188,6 +88188,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1713817009636909230, guid: 274fe40ea18125641b3836327c1b4fc3, type: 3}
   m_PrefabInstance: {fileID: 1713817007712591443}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &2010480383 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1713817009636909228, guid: 274fe40ea18125641b3836327c1b4fc3, type: 3}
+  m_PrefabInstance: {fileID: 1713817007712591443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2133270770
 GameObject:
   m_ObjectHideFlags: 0
@@ -88348,6 +88353,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1713817009636909224, guid: 274fe40ea18125641b3836327c1b4fc3, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2010480383}
     - target: {fileID: 1713817009636909225, guid: 274fe40ea18125641b3836327c1b4fc3, type: 3}
       propertyPath: m_Name
       value: hero-idle-front
