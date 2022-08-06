@@ -1220,8 +1220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e2b52ea0f3c9746b6954586d511e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entryContainer: {fileID: 213420608}
-  entryTemplate: {fileID: 1468622223}
+  entryContainer: {fileID: 0}
+  entryTemplate: {fileID: 0}
 --- !u!1 &1737261581
 GameObject:
   m_ObjectHideFlags: 0

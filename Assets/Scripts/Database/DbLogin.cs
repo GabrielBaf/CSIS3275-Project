@@ -24,4 +24,10 @@ public class DbLogin : MonoBehaviour
    public void GoToScoreBoardScene() {
       SceneManager.LoadScene("ScoreScene");
    }
+    public void GoToGame() {
+      SceneManager.LoadScene("Scene1");
+   }
+    public void Quit() {
+      Application.Quit();
+   }
 }

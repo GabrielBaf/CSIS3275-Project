@@ -16,13 +16,15 @@ public class HighScoreTable : MonoBehaviour
 
     
     void Start() {
-        StartCoroutine(GetRequest("http://localhost/sqlconnect/GetScores.php"));
+       // StartCoroutine(GetRequest("http://localhost/sqlconnect/GetScores.php"));
     }
     private void Awake(){
         entryContainer = transform.Find("highScoreEntryContainer");
-        entryTemplate = transform.Find("highScoreEntryTemplate");
+        entryTemplate = entryContainer.Find("highScoreEntryTemplate");
 
-        entryTemplate.gameObject.SetActive(false);
+        //entryTemplate.gameObject.SetActive(false);
+
+        StartCoroutine(GetRequest("http://localhost/sqlconnect/GetScores.php"));
     }
 
     void Update() {

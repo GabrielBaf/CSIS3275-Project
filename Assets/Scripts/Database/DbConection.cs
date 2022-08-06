@@ -23,9 +23,12 @@ public class DbConection : MonoBehaviour
 
     public void CallLogin() {
         StartCoroutine(LoginPlayer());
-        SceneManager.LoadScene("Scene1");
+        SceneManager.LoadScene("PlayScene");
         // if(DbManager.loggedIn) {
         // }
+    }
+     public void Play() {
+        SceneManager.LoadScene("PlayScene");
     }
 
     IEnumerator Register() {
