@@ -713,6 +713,7 @@ MonoBehaviour:
   enemySpritesheet: {fileID: 2800000, guid: 485aac2909f59d141a657b9a29ddf608, type: 3}
   enemySpritesheet2: {fileID: 2800000, guid: b7a6becedc0ce8d45a40574ac6e6c3f5, type: 3}
   enemySpritesheet3: {fileID: 2800000, guid: d9c361ffe5d5aeb4e9d1ad5c56db12f4, type: 3}
+  boosSpritesheet: {fileID: 2800000, guid: 894c51fb6c566924eade10c84c6896bf, type: 3}
 --- !u!4 &622812125
 Transform:
   m_ObjectHideFlags: 0
@@ -1886,6 +1887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa0f4981401a3544972ec2fcf4f92d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levels: 0
 --- !u!1 &1797793837
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,9 +8,11 @@ public class HighScoreSing : MonoBehaviour
 {   
     private static HighScoreSing _Instance;
     private CharacterBattle characterBattle;
-    public bool isLevel2 = false,isLevel3 = false;
+    public bool isLevel2 = false,isLevel3 = false, isBoosLevel = false;
     public bool enemy2_1 = true;
     public bool enemy2_2 = true;
+    public bool enemy3_1 = true;
+    public bool enemy3_2 = true;
     private int questionTotal = 0,questionsRight = 0;
     public int playtime = 0;
     private float seconds = 0;
@@ -54,6 +56,22 @@ public class HighScoreSing : MonoBehaviour
         enemy2_1 = true;
         enemy2_2 = true;
     }
+     public void Level3_1(){
+        enemy3_1 = false;
+    }
+     public void Level3_2(){
+        enemy3_2 = false;
+    }
+    public void EndLevel3(){
+        enemy3_1 = true;
+        enemy3_2 = true;
+    }
+    public void activateBoos(){
+        isBoosLevel = true;
+    }
+    public bool BoosTime(){
+        return isBoosLevel;
+    }
      public void QuestionRight(){
         questionTotal ++;
         questionsRight ++;
@@ -69,18 +87,29 @@ public class HighScoreSing : MonoBehaviour
     }
     public void ChangeLevel(){
        if(isLevel2){
-        if(enemy2_1 == false){
-            SceneManager.LoadScene("Scene2_1");
-        }else if(enemy2_2 == false){
-            SceneManager.LoadScene("Scene2_2");
-        }else if(enemy2_2 == false && enemy2_1 == false){
-             SceneManager.LoadScene("Scene3");
+        if(enemy2_2 == false && enemy2_1 == false){
+         SceneManager.LoadScene("Scene3");
              isLevel2 = false;
              isLevel3 = true;
              EndLevel2();
+        }else if(enemy2_2 == false){
+            SceneManager.LoadScene("Scene2_2");
+        }else if(enemy2_1 == false){
+            
+             SceneManager.LoadScene("Scene2_1");
         }
        }else if(isLevel3){
-
+       if (enemy3_2 == false && enemy3_1 == false){
+             activateBoos();
+             SceneManager.LoadScene("SceneBoos");
+             isLevel2 = false;
+             isLevel3 = false;
+             EndLevel3();
+        }else if(enemy3_1 == false){
+            SceneManager.LoadScene("Scene3_1");
+        }else if(enemy3_2 == false){
+            SceneManager.LoadScene("Scene3_2");
+        }
        }else{
         SceneManager.LoadScene("Scene2");
         isLevel2 = true;
