@@ -448,32 +448,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80683383}
   m_CullTransparentMesh: 1
---- !u!1 &114196319 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6636320281946776156, guid: e2a36f26d7fa7db4580d95fb999dc209, type: 3}
-  m_PrefabInstance: {fileID: 6636320281925655811}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &114196320 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6636320281946776163, guid: e2a36f26d7fa7db4580d95fb999dc209, type: 3}
   m_PrefabInstance: {fileID: 6636320281925655811}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114196319}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b724fd42d310cc4dbc0d63752af55e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114196321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114196319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e1f26f6589eb1e47b29f5268dfbf38c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &123140520
@@ -1689,13 +1672,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114196319}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 114196320}
+        m_TargetAssemblyTypeName: DialogManager, Assembly-CSharp
+        m_MethodName: WrongAnswer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2021,13 +2004,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114196319}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 114196320}
+        m_TargetAssemblyTypeName: DialogManager, Assembly-CSharp
+        m_MethodName: WrongAnswer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2802,7 +2785,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333971888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.43, y: 6.28, z: 0}
+  m_LocalPosition: {x: -0.43, y: 0.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2825,16 +2808,10 @@ MonoBehaviour:
   dialogue:
     name: Mage
     sentences:
-    - Ohh finally my ritual is completed
-    - You should be asking yourself what is happening right now
-    - So to make it short, i`m a mage from the game you were creating
-    - If you don`t remenber my name is Bardot
-    - I used a secret ritual that i discovered to bring you to this world.
-    - I will explane more detail has we go, but right now i need your help
-    - The enemys you create for the game are not working properly now
-    - They been afected by bugs, and I need your help to deal with them
-    - I will ask you some programmer questions, if you get them right you will get
-      benefits on the combat
+    - You still using a different character on combat and in-game, well nothing we
+      can change now
+    - Keep defeating the enemies and getting the answer rights and you will be able
+      t free us
 --- !u!1 &1338349688
 GameObject:
   m_ObjectHideFlags: 0

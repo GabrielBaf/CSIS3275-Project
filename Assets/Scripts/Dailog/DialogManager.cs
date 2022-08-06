@@ -11,6 +11,7 @@ public class DialogManager : MonoBehaviour
    
     
     public GameObject treelvl2_1,treelvl2_2;
+     public GameObject treelvl3_1,treelvl3_2;
     private int questionTotal,questionsRight;
     private SpriteRenderer spriteRenderer;
     private PlayerMovement playerMovement;

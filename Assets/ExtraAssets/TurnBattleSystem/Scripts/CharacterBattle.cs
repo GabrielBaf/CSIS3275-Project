@@ -33,7 +33,7 @@ public class CharacterBattle : MonoBehaviour {
 
    
 
-    public void Setup(bool isPlayerTeam,bool isHealer,bool isTank,bool isEnemy2,bool isEnemy3) {
+    public void Setup(bool isPlayerTeam,bool isHealer,bool isTank,bool isEnemy2,bool isEnemy3,bool isBoos) {
         this.isPlayerTeam = isPlayerTeam;
         this.isHealer = isHealer;
         if (isPlayerTeam) {
@@ -53,6 +53,9 @@ public class CharacterBattle : MonoBehaviour {
             }else if(isEnemy3){
                 characterBase.SetAnimsSwordShield();
             characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().enemySpritesheet3;
+            }else if(isBoos){
+            characterBase.SetAnimsSwordShield();
+            characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().boosSpritesheet;
             }else{
             characterBase.SetAnimsSwordShield();
             characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().enemySpritesheet;
@@ -157,11 +160,11 @@ public class CharacterBattle : MonoBehaviour {
             Vector3 attackDir = (targetCharacterBattle.GetPosition() - GetPosition()).normalized;
             characterBase.PlayAnimAttack(attackDir, () => {
 
-                damageAmount = 30;
+                int tankDamageAmount = 30;
                 
-                targetCharacterBattle.Damage(this, damageAmount);
-                targetCharacterBattle2.Damage(this, damageAmount);
-                targetCharacterBattle3.Damage(this, damageAmount);
+                targetCharacterBattle.Damage(this, tankDamageAmount);
+                targetCharacterBattle2.Damage(this, tankDamageAmount);
+                targetCharacterBattle3.Damage(this, tankDamageAmount);
                 }, () => {
                 // Attack completed, slide back
                 SlideToPosition(startingPosition, () => {
@@ -177,7 +180,7 @@ public class CharacterBattle : MonoBehaviour {
      public void SpecialAttackHealer(CharacterBattle targetCharacterBattle, Action onAttackComplete) {
         Vector3 slideTargetPosition = targetCharacterBattle.GetPosition() + (GetPosition() - targetCharacterBattle.GetPosition()).normalized * 10f;
         Vector3 startingPosition = GetPosition();
-        damageAmount = -50;
+        int healerDamageAmount = -50;
         targetCharacterBattle.Damage(this, damageAmount);
         state = State.Idle;
         onAttackComplete();        
