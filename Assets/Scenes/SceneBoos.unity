@@ -1730,7 +1730,7 @@ RectTransform:
   m_GameObject: {fileID: 780706821}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 71.28713, z: 1}
+  m_LocalScale: {x: 150, y: 80, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1618322848}
@@ -1739,7 +1739,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 104.00001, y: -8.019584}
+  m_AnchoredPosition: {x: 104.00001, y: -2.8}
   m_SizeDelta: {x: 1.5, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &780706823
@@ -1974,7 +1974,7 @@ RectTransform:
   m_GameObject: {fileID: 929443195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.2625, z: 1}
+  m_LocalScale: {x: 1.4125, y: 1.2625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 459073739}
@@ -2057,7 +2057,7 @@ RectTransform:
   m_GameObject: {fileID: 1063760710}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 71.28713, z: 1}
+  m_LocalScale: {x: 150, y: 80, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 123140521}
@@ -2066,7 +2066,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 108, y: -33.50496}
+  m_AnchoredPosition: {x: 104.3, y: -29.8}
   m_SizeDelta: {x: 1.5, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1063760712
@@ -2703,7 +2703,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333971888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.43, y: 6.28, z: 0}
+  m_LocalPosition: {x: -0.43, y: -0.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2726,16 +2726,10 @@ MonoBehaviour:
   dialogue:
     name: Mage
     sentences:
-    - Ohh finally my ritual is completed
-    - You should be asking yourself what is happening right now
-    - So to make it short, i`m a mage from the game you were creating
-    - If you don`t remenber my name is Bardot
-    - I used a secret ritual that i discovered to bring you to this world.
-    - I will explane more detail has we go, but right now i need your help
-    - The enemys you create for the game are not working properly now
-    - They been afected by bugs, and I need your help to deal with them
-    - I will ask you some programmer questions, if you get them right you will get
-      benefits on the combat
+    - You defeated all the bugs. Look!
+    - The corrupt.exe finaly showed up!
+    - You should aproach the stone monument to fight!
+    - Be prepared!!
 --- !u!1 &1338349688
 GameObject:
   m_ObjectHideFlags: 0
@@ -2809,7 +2803,7 @@ RectTransform:
   m_GameObject: {fileID: 1382941606}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 71.28713, z: 1}
+  m_LocalScale: {x: 150, y: 80, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1262682052}
@@ -2818,7 +2812,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: -29.940601}
+  m_AnchoredPosition: {x: -130.4, y: -29.940601}
   m_SizeDelta: {x: 1.5, y: 0.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1382941608
@@ -88100,7 +88094,7 @@ RectTransform:
   m_GameObject: {fileID: 1895053814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 71.28713, z: 1}
+  m_LocalScale: {x: 150, y: 80, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1456010962}
@@ -88109,7 +88103,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: -8.019584}
+  m_AnchoredPosition: {x: -131.3, y: -2.1}
   m_SizeDelta: {x: 1.5, y: 0.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1895053816

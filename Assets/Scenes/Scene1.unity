@@ -2841,16 +2841,20 @@ MonoBehaviour:
   dialogue:
     name: Mage
     sentences:
-    - Ohh finally my ritual is completed
-    - You should be asking yourself what is happening right now
-    - So to make it short, i`m a mage from the game you were creating
-    - If you don`t remenber my name is Bardot
-    - I used a secret ritual that i discovered to bring you to this world.
-    - I will explane more detail has we go, but right now i need your help
-    - The enemys you create for the game are not working properly now
-    - They been afected by bugs, and I need your help to deal with them
-    - I will ask you some programmer questions, if you get them right you will get
-      benefits on the combat
+    - Ohh finally! My ritual is completed!
+    - You should be asking yourself "What is happening right now?"
+    - So to make it short, I`m the mage from the game you were creating!
+    - If you don`t remenber, my name is Bardot!
+    - I used a secret ritual that I discovered to bring you to this world.
+    - I will explain more detail as we go, but right now I need your help!!
+    - The enemies you create for the game are not working properly now!
+    - They have been corrupted by bugs, and I need your help to deal with them!
+    - I found an ancient text.txt of knowledge to help you, but I can`t dephifer
+      it!
+    - The text is seems to be called "Software Engineering - a Practitioner`s Approach.txt"
+    - It was written by a might wizard called Pressman.
+    - If you awnser correctly from the text.txt, you will certanly get a power boost
+      for the fight!
 --- !u!1 &1338349688
 GameObject:
   m_ObjectHideFlags: 0

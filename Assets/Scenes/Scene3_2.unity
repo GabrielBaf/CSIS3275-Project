@@ -1717,7 +1717,7 @@ RectTransform:
   m_GameObject: {fileID: 780706821}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 71.28713, z: 1}
+  m_LocalScale: {x: 150, y: 80, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1618322848}
@@ -1726,7 +1726,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 104.00001, y: -8.019584}
+  m_AnchoredPosition: {x: 104.00001, y: -2.2}
   m_SizeDelta: {x: 1.5, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &780706823
@@ -1961,7 +1961,7 @@ RectTransform:
   m_GameObject: {fileID: 929443195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.2625, z: 1}
+  m_LocalScale: {x: 1.45, y: 1.2625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 459073739}
@@ -2049,7 +2049,7 @@ RectTransform:
   m_GameObject: {fileID: 1063760710}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 71.28713, z: 1}
+  m_LocalScale: {x: 150, y: 80, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 123140521}
@@ -2058,7 +2058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 108, y: -33.50496}
+  m_AnchoredPosition: {x: 104.9, y: -27.2}
   m_SizeDelta: {x: 1.5, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1063760712
@@ -2718,7 +2718,8 @@ MonoBehaviour:
   dialogue:
     name: Mage
     sentences:
-    - Almost there
+    - You defeated a bug!
+    - Now it became an sprite of the game`s scenary.
 --- !u!1 &1338349688
 GameObject:
   m_ObjectHideFlags: 0
@@ -2792,7 +2793,7 @@ RectTransform:
   m_GameObject: {fileID: 1382941606}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 71.28713, z: 1}
+  m_LocalScale: {x: 150, y: 80, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1262682052}
@@ -2801,7 +2802,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: -29.940601}
+  m_AnchoredPosition: {x: -129.3, y: -26.8}
   m_SizeDelta: {x: 1.5, y: 0.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1382941608
@@ -88083,7 +88084,7 @@ RectTransform:
   m_GameObject: {fileID: 1895053814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 71.28713, z: 1}
+  m_LocalScale: {x: 150, y: 80, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1456010962}
@@ -88092,7 +88093,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: -8.019584}
+  m_AnchoredPosition: {x: -130.6, y: -3.3}
   m_SizeDelta: {x: 1.5, y: 0.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1895053816
