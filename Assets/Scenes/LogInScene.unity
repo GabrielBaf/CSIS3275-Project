@@ -346,8 +346,8 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 0
+  m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -803,9 +803,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61b84989f2076a4b9849e9aedd3aec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameField: {fileID: 0}
-  passwordField: {fileID: 0}
-  submitButton: {fileID: 0}
+  nameField: {fileID: 62514314}
+  passwordField: {fileID: 1939805180}
+  submitButton: {fileID: 1808896575}
 --- !u!1 &792844584
 GameObject:
   m_ObjectHideFlags: 0
@@ -2076,7 +2076,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939805178}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

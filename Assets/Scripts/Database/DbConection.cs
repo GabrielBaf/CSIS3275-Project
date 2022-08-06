@@ -22,9 +22,9 @@ public class DbConection : MonoBehaviour
 
     public void CallLogin() {
         StartCoroutine(LoginPlayer());
-        if(DbManager.loggedIn) {
-            SceneManager.LoadScene("SampleScene 1");
-        }
+        SceneManager.LoadScene("SampleScene 1");
+        // if(DbManager.loggedIn) {
+        // }
     }
 
     IEnumerator Register() {
@@ -45,17 +45,19 @@ public class DbConection : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("name", nameField.text);
         form.AddField("password", passwordField.text);
+        Debug.Log(nameField.text);
+        Debug.Log(passwordField.text);
         WWW www = new WWW("http://localhost/sqlconnect/login.php", form);
         yield return www;
         
-        if(www.text[0] = "0") {
-            DbManager.username = nameField.text;
-            DbManager.score = int.Parse(www.text.Split('\t')[1]);
-        } else {
-            Debug.Log("User login Failed. Error #" + www.text);
-        }
+        // if(www.text[0] == '0') {
+        //     DbManager.username = nameField.text;
+        //     DbManager.score = int.Parse(www.text.Split('\t')[1]);
+        // } else {
+        //     Debug.Log("User login Failed. Error #" + www.text);
+        // }
 
-        VerifyInputs();
+        // VerifyInputs();
     }
 
     public void VerifyInputs() {
