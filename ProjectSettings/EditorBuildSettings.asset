@@ -18,6 +18,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_2.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Scene1.unity
+    guid: 86297c74c29d0f343bc54798eb1e459d
+  - enabled: 1
     path: Assets/ExtraAssets/TurnBattleSystem/GameScene_TurnBattleSystem.unity
     guid: c148f78900d5bee4ebbb8533ccb33202
+  - enabled: 1
+    path: Assets/Scenes/Scene2.unity
+    guid: e87dfbac48941b541a9722d3dc30f9ab
+  - enabled: 1
+    path: Assets/Scenes/Scene2_1.unity
+    guid: 6124cf28af0da7c43baaa198fc415ab1
+  - enabled: 1
+    path: Assets/Scenes/Scene2_2.unity
+    guid: 7e943d0a1b1711c45993bd2959990bd2
   m_configObjects: {}

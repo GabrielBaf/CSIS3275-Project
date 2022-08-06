@@ -741,8 +741,6 @@ GameObject:
   m_Component:
   - component: {fileID: 756521197}
   - component: {fileID: 756521198}
-  - component: {fileID: 756521199}
-  - component: {fileID: 756521200}
   m_Layer: 0
   m_Name: MenuHandler
   m_TagString: Untagged
@@ -777,35 +775,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e80013416502a64a90f0dbf20d7d85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logInUsername: {fileID: 62514314}
-  logInPasswd: {fileID: 1939805180}
---- !u!114 &756521199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756521196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1c99b4335fe77b47ba5b9f3268e8aaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &756521200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756521196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a61b84989f2076a4b9849e9aedd3aec2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameField: {fileID: 62514314}
-  passwordField: {fileID: 1939805180}
-  submitButton: {fileID: 1808896575}
+  logInUsername: {fileID: 0}
+  logInPasswd: {fileID: 0}
 --- !u!1 &792844584
 GameObject:
   m_ObjectHideFlags: 0

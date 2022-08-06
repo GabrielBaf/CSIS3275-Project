@@ -7,10 +7,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BattleOverWindow : MonoBehaviour {
-    public GameObject player;
+  
+    
     private static BattleOverWindow instance;
+    public int levels=0;
 
     private void Awake() {
+       
         instance = this;
         Hide();
     }
@@ -30,8 +33,7 @@ public class BattleOverWindow : MonoBehaviour {
         instance.Show(winnerString);
     }
     public void BackToScene(){
-        //player.SetActive(true);
-        SceneManager.UnloadScene("GameScene_TurnBattleSystem");
+       HighScoreSing.Instance.ChangeLevel();
     }
 
 }

@@ -7,12 +7,17 @@ using TMPro;
 using System;
 
 public class DialogManager : MonoBehaviour
-{
-    private int questionTotal,questionsRight;
+{   
    
+    
+    public GameObject treelvl2_1,treelvl2_2;
+    private int questionTotal,questionsRight;
+    private SpriteRenderer spriteRenderer;
+    private PlayerMovement playerMovement;
     private Queue<string> sentences;
     private List<string> buttonTextQuestions;
     public GameObject dialogueUI,questionUI,player;
+    public GameObject buttonQ1,buttonQ2,buttonQ3,buttonQ4;
     public TMP_Text textDialogueUI,nameDialogueUI;
     public TMP_Text textQuestionUI,nameQuestionUI;
     public TMP_Text[] buttonsQuestions;
@@ -21,6 +26,9 @@ public class DialogManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        spriteRenderer = player.GetComponent<SpriteRenderer>();
+        playerMovement = player.GetComponent<PlayerMovement>();
         sentences = new Queue<string>();
         buttonTextQuestions = new List<string>();
     }
@@ -39,6 +47,7 @@ public class DialogManager : MonoBehaviour
        for(int i=0;i<buttonTextQuestions.Count;i++){
         buttonsQuestions[i].text = buttonTextQuestions[i];
        }
+       buttonTextQuestions.Clear();
     }
    public void StartDialogue(Dialogue dialogue){
     dialogueUI.SetActive(true);
@@ -66,26 +75,37 @@ public class DialogManager : MonoBehaviour
   public void EndDialogue(){
     dialogueUI.SetActive(false);
     Time.timeScale = 1f;
-    Debug.Log("End");
+    
    }
    public void RightAnswer(){
-    BattleHandler.healerUnlocked = true;
-    questionTotal =+ 1;
-    questionsRight =+1;
-    textQuestionUI.text = "You got it right!!!!!";
-    Invoke("ChangeScene", 2.5f);
+    //BattleHandler.healerUnlocked = true;
+    Time.timeScale = 1f;
+    HighScoreSing.Instance.QuestionRight();
+    HighScoreSing.Instance.SaveDmgUp();
+    textQuestionUI.text = "You got it right! Get ready for combat!";
+    buttonQ1.SetActive(false);
+    buttonQ2.SetActive(false);
+    buttonQ3.SetActive(false);
+    buttonQ4.SetActive(false);
+    Invoke("ChangeScene", 2f);
+    
    }
   public void WrongAnswer(){
-    
-    questionTotal =+ 1;
-    textQuestionUI.text = "You got it Wrong!!!!!";
+    Time.timeScale = 1f;
+    HighScoreSing.Instance.QuestionWrong();
+    textQuestionUI.text = "You got it Wrong! Don`t let it get in your head Get ready for combat!";
+    buttonQ1.SetActive(false);
+    buttonQ2.SetActive(false);
+    buttonQ3.SetActive(false);
+    buttonQ4.SetActive(false);
     Invoke("ChangeScene", 2.5f);
    
    }
    public void ChangeScene(){
-    //player.SetActive(false);
-    
     questionUI.SetActive(false);
-    SceneManager.LoadScene("GameScene_TurnBattleSystem", LoadSceneMode.Additive);
+    
+    SceneManager.LoadScene("GameScene_TurnBattleSystem");
+   
    }
+   
 }
