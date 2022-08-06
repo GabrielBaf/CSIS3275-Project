@@ -6,6 +6,8 @@ public class EnemyPatrol : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 1f;
 
+    public Animator animator;
+
     Rigidbody2D rb;
     BoxCollider2D cb;
 
@@ -23,9 +25,14 @@ public class EnemyPatrol : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        transform.localScale = new Vector2(-(Mathf.Sign(rb.velocity.x)), transform.localScale.y);
+        if(collision.name == "PatrollingUp") {
+            transform.localScale = new Vector2(-(Mathf.Sign(rb.velocity.x)), transform.localScale.y);
+            animator.SetBool("moveUp",true);
+        } else {
+            transform.localScale = new Vector2((Mathf.Sign(rb.velocity.x)), transform.localScale.y);
+            animator.SetBool("moveUp",false);
+        }
     }
-
     private bool isFacingDown() {
         return transform.localScale.x > Mathf.Epsilon;
     }

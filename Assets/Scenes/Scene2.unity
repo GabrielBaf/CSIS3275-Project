@@ -1471,6 +1471,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655056592}
   m_CullTransparentMesh: 1
+--- !u!1 &671930645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 671930647}
+  - component: {fileID: 671930646}
+  m_Layer: 0
+  m_Name: PatrollingDown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &671930646
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671930645}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 29.44, y: 1}
+  m_EdgeRadius: 0
+--- !u!4 &671930647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671930645}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: 11.46, z: -0.05370843}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &767764714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,134 +1739,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780706821}
   m_CullTransparentMesh: 1
---- !u!1 &836369703
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 836369704}
-  - component: {fileID: 836369705}
-  m_Layer: 0
-  m_Name: Audio Source
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &836369704
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836369703}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2010480381}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &836369705
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836369703}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9177b75fa3d2125429438cd2c9a802b5, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &876012386
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,6 +1945,8 @@ GameObject:
   - component: {fileID: 936749478}
   - component: {fileID: 936749480}
   - component: {fileID: 936749481}
+  - component: {fileID: 936749482}
+  - component: {fileID: 936749483}
   m_Layer: 0
   m_Name: treant-walk-front-1
   m_TagString: Untagged
@@ -2150,12 +2082,49 @@ MonoBehaviour:
   colliderOBJ: {fileID: 936749475}
   questions:
     name: Mage
-    questions: Okay, first question. What is a Variable
+    questions: How is C# different from C?
     answers:
-    - Are something that varies
-    - Are used to store information to be referenced and manipulated
-    - Is a random number
-    - Nome of the aboves
+    - C# is an object-oriented programming language, whereas C is a procedural programming
+      language
+    - C# is a procedural programming language, whereas C is a  object-oriented programming
+      language
+    - C# is the tuning of Mozart's piano while C is Beethoven
+    - C# means that it is sharp, whereas C is dull
+--- !u!114 &936749482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936749475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1553da99e56569e49a0c5a6b89190124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  animator: {fileID: 936749478}
+--- !u!50 &936749483
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936749475}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1063760710
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,6 +2272,8 @@ GameObject:
   - component: {fileID: 1082814371}
   - component: {fileID: 1082814370}
   - component: {fileID: 1082814369}
+  - component: {fileID: 1082814374}
+  - component: {fileID: 1082814375}
   m_Layer: 0
   m_Name: reant-walk-front-2
   m_TagString: Untagged
@@ -2325,12 +2296,12 @@ MonoBehaviour:
   colliderOBJ: {fileID: 1082814368}
   questions:
     name: Mage
-    questions: Okay, first question. What is a Variable
+    questions: What is the difference between RAM and ROM Memory?
     answers:
-    - Are something that varies
-    - Are used to store information to be referenced and manipulated
-    - Is a random number
-    - Nome of the aboves
+    - RAM is Volatile and  Rom is Non Volatile
+    - RAM is Non Volatile and  Rom is Volatile
+    - They are all Volatile
+    - They are all Non Volatile
 --- !u!61 &1082814370
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2444,6 +2415,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1082814374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082814368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1553da99e56569e49a0c5a6b89190124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  animator: {fileID: 1082814371}
+--- !u!50 &1082814375
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082814368}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1190488144
 GameObject:
   m_ObjectHideFlags: 0
@@ -88455,6 +88461,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895053814}
   m_CullTransparentMesh: 1
+--- !u!1 &1901176346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1901176348}
+  - component: {fileID: 1901176347}
+  m_Layer: 0
+  m_Name: PatrollingUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1901176347
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901176346}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 29.44, y: 1}
+  m_EdgeRadius: 0
+--- !u!4 &1901176348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901176346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: 0.97, z: -0.05370843}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1921734957
 GameObject:
   m_ObjectHideFlags: 0
@@ -88618,16 +88682,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1713817009636909225, guid: 274fe40ea18125641b3836327c1b4fc3, type: 3}
   m_PrefabInstance: {fileID: 1713817007712591443}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2010480381 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1713817009636909230, guid: 274fe40ea18125641b3836327c1b4fc3, type: 3}
-  m_PrefabInstance: {fileID: 1713817007712591443}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2010480383 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1713817009636909228, guid: 274fe40ea18125641b3836327c1b4fc3, type: 3}
-  m_PrefabInstance: {fileID: 1713817007712591443}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2133270770
 GameObject:
   m_ObjectHideFlags: 0
@@ -88788,21 +88842,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1713817009636909224, guid: 274fe40ea18125641b3836327c1b4fc3, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 2010480383}
-    - target: {fileID: 1713817009636909224, guid: 274fe40ea18125641b3836327c1b4fc3, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1713817009636909225, guid: 274fe40ea18125641b3836327c1b4fc3, type: 3}
       propertyPath: m_Name
       value: hero-idle-front
-      objectReference: {fileID: 0}
-    - target: {fileID: 1713817009636909225, guid: 274fe40ea18125641b3836327c1b4fc3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1713817009636909230, guid: 274fe40ea18125641b3836327c1b4fc3, type: 3}
       propertyPath: m_RootOrder
@@ -88914,6 +88956,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2010480378}
+    - target: {fileID: 6636320281946776163, guid: e2a36f26d7fa7db4580d95fb999dc209, type: 3}
+      propertyPath: buttonQ1
+      value: 
+      objectReference: {fileID: 1895053814}
+    - target: {fileID: 6636320281946776163, guid: e2a36f26d7fa7db4580d95fb999dc209, type: 3}
+      propertyPath: buttonQ2
+      value: 
+      objectReference: {fileID: 1382941606}
+    - target: {fileID: 6636320281946776163, guid: e2a36f26d7fa7db4580d95fb999dc209, type: 3}
+      propertyPath: buttonQ3
+      value: 
+      objectReference: {fileID: 780706821}
+    - target: {fileID: 6636320281946776163, guid: e2a36f26d7fa7db4580d95fb999dc209, type: 3}
+      propertyPath: buttonQ4
+      value: 
+      objectReference: {fileID: 1063760710}
     - target: {fileID: 6636320281946776163, guid: e2a36f26d7fa7db4580d95fb999dc209, type: 3}
       propertyPath: dialogueUI
       value: 

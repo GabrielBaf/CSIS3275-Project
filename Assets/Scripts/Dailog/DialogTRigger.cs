@@ -9,8 +9,10 @@ public class DialogTRigger : MonoBehaviour
     public Dialogue dialogue; 
 
     private void OnTriggerEnter2D(Collider2D other) {
+        if(other.tag == "Player"){
          FindObjectOfType<DialogManager>().StartDialogue(dialogue);  
          colliderOBJ.SetActive(false);
+        }
     }
    
 }

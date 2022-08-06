@@ -88713,6 +88713,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2010480378}
     - target: {fileID: 6636320281946776163, guid: e2a36f26d7fa7db4580d95fb999dc209, type: 3}
+      propertyPath: buttonQ1
+      value: 
+      objectReference: {fileID: 1895053814}
+    - target: {fileID: 6636320281946776163, guid: e2a36f26d7fa7db4580d95fb999dc209, type: 3}
+      propertyPath: buttonQ2
+      value: 
+      objectReference: {fileID: 1382941606}
+    - target: {fileID: 6636320281946776163, guid: e2a36f26d7fa7db4580d95fb999dc209, type: 3}
+      propertyPath: buttonQ3
+      value: 
+      objectReference: {fileID: 780706821}
+    - target: {fileID: 6636320281946776163, guid: e2a36f26d7fa7db4580d95fb999dc209, type: 3}
+      propertyPath: buttonQ4
+      value: 
+      objectReference: {fileID: 1063760710}
+    - target: {fileID: 6636320281946776163, guid: e2a36f26d7fa7db4580d95fb999dc209, type: 3}
       propertyPath: dialogueUI
       value: 
       objectReference: {fileID: 80683383}

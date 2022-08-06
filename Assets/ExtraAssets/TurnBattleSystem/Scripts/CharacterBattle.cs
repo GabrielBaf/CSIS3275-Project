@@ -15,7 +15,7 @@ public class CharacterBattle : MonoBehaviour {
     private GameObject selectionCircleGameObject;
     private HealthSystem healthSystem;
     private World_Bar healthBar;
-    public int damageAmount = HighScoreSing.Instance.GetDmg();
+    public int damageAmount; 
 
     private enum State {
         Idle,
@@ -24,14 +24,14 @@ public class CharacterBattle : MonoBehaviour {
     }
 
     private void Awake() {
+        damageAmount = HighScoreSing.Instance.GetDmg();
         characterBase = GetComponent<Character_Base>();
         selectionCircleGameObject = transform.Find("SelectionCircle").gameObject;
         HideSelectionCircle();
         state = State.Idle;
     }
 
-    private void Start() {
-    }
+   
 
     public void Setup(bool isPlayerTeam,bool isHealer,bool isTank,bool isEnemy2,bool isEnemy3) {
         this.isPlayerTeam = isPlayerTeam;
