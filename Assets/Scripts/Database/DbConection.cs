@@ -1,71 +1,64 @@
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Networking;
+using TMPro;
+using System;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class DbConection
+public class DbConection : MonoBehaviour
 {
-    // private string secretKey = "5GG";
-    // public string addScoreUrl = "http://localhost/game/addScores.php";
-    // public string highScore = "http://localhost/game/display.php";
-    // public Text name;
-    // public Text socre;
-    // public Text nameResult;
-    // public Text scoreResult;
+    public TMP_Text nameField;
+    public TMP_Text passwordField;
+    public Button submitButton;
 
-    // public void GetScore() {
-    //     nameResult.text = "Player: \n \n";
-    //     scoreResult.text = "Score: \n \n";
-    //     StartRoutine();
-    // }
+    public void CallRegister() {
+        StartCoroutine(Register());
+        SceneManager.LoadScene("LogInScene");
+    }
 
-    // public void SendScore() {
-    //     StartRoutine(PostScore(name.text, Convert.ToInt32(score.text)));
-    //     name.gameObject.transform.parent.GetComponent<InputField>().text;
-    //     score.gameObject.transform.parent.GetComponent<InputField>().text;
-    // }
+    public void CallLogin() {
+        StartCoroutine(LoginPlayer());
+        if(DbManager.loggedIn) {
+            SceneManager.LoadScene("SampleScene 1");
+        }
+    }
 
-    // IEnumerator GetScores() {
-    //     UnityWebRequest hs_get = UnityWebRequest.Get(highScore);
-    //     yield return hs_get.SendWebRequest();
+    IEnumerator Register() {
+        WWWForm form = new WWWForm();
+        form.AddField("name", nameField.text);
+        form.AddField("password", passwordField.text);
+        WWW www = new WWW("http://localhost/sqlconnect/register.php", form);
+        yield return www;
+        if(www.text == "0") {
+            Debug.Log("User created Successfully");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene 1");
+        } else {
+            Debug.Log("User creation failed. Error  #" + www.text);
+        }
+    }
 
-    //     if(hs_get.error != null) {
-    //         Debug.Log("There was an error getting the high score: " + hs_get.error);
-    //     } else {
-    //         string dataText = hs_get.downloadHandler.text;
-    //         MatchCollection mc = Regex.Matches(dataText, @"_");
+    IEnumerator LoginPlayer() {
+        WWWForm form = new WWWForm();
+        form.AddField("name", nameField.text);
+        form.AddField("password", passwordField.text);
+        WWW www = new WWW("http://localhost/sqlconnect/login.php", form);
+        yield return www;
+        
+        if(www.text[0] = "0") {
+            DbManager.username = nameField.text;
+            DbManager.score = int.Parse(www.text.Split('\t')[1]);
+        } else {
+            Debug.Log("User login Failed. Error #" + www.text);
+        }
 
-    //         if(mc.Count > 0) {
-    //             string[] spliData = Regex.Split(dataText, @"_");
-    //             for(int i = 0; i < mc.Count; i++) {
-    //                 if(i % 2 == 0) {
-    //                     nameResult.text += spliData[i];
-    //                 } else {
-    //                     scoreResult.text += spliData[i];
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
+        VerifyInputs();
+    }
 
-    // IEnumerator PostScore(string name, int score) {
-    //     string hash = HashInput(name + score + secretKey);
-    //     string post_url = addScoreUrl + "name=" + UnityWebRequest.EscapeURL(name) + "&score=" + score + "&hash=" + hash;
-    //     UnityWebRequest hs_post = UnityWebRequest.Post(post_url, hash);
-    //     yield return hs_post.SendWebRequest();
-
-    //     if(hs_post != null) {
-    //         Debug.Log("There was an error posting the high score: "  + hs_post);
-    //     }
-    // }
-
-    // public string HashInput(string input) {
-    //     SHA256Managed hm = new SHA256Managed();
-    //     byte[] hashValue = hm.ComputeHash(System.Text.Encoding.ASCII.GetBytes(input));
-    //     string hash_convert = BitConverter.ToString(hashValue).Replace("-", "").ToLower();
-
-    //     return hash_convert;
-    // }
+    public void VerifyInputs() {
+        submitButton.interactable = (nameField.text.Length >= 4 && passwordField.text.Length >= 4);
+    }
 }
