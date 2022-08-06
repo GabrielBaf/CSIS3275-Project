@@ -13,6 +13,7 @@ public class DbConection : MonoBehaviour
 {
     public TMP_Text nameField;
     public TMP_Text passwordField;
+    public Text score;
     public Button submitButton;
 
     public void CallRegister() {
@@ -59,6 +60,20 @@ public class DbConection : MonoBehaviour
 
         // VerifyInputs();
     }
+
+    IEnumerator UpdateScore() {
+        WWWForm form = new WWWForm();
+        form.AddField("score", score.text);
+        WWW www = new WWW("http://localhost/sqlconnect/SavingScore.php", form);
+        yield return www;
+    }
+
+    IEnumerator GetScore() {
+        WWW www = new WWW("http://localhost/sqlconnect/GetScores.php");
+        Debug.Log(www);
+        yield return www;
+    }
+
 
     public void VerifyInputs() {
         submitButton.interactable = (nameField.text.Length >= 4 && passwordField.text.Length >= 4);

@@ -12,8 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/RegisterScene.unity
     guid: 641a952017888f041aa9bebfda44727d
   - enabled: 1
+    path: Assets/Scenes/PlayScene.unity
+    guid: 823a5f36569858e4a845a9523f3fd041
+  - enabled: 1
     path: Assets/Scenes/Scene1.unity
     guid: 86297c74c29d0f343bc54798eb1e459d
+  - enabled: 1
+    path: Assets/Scenes/ScoreScene.unity
+    guid: 613100e5432650f4092df385380d356f
   - enabled: 1
     path: Assets/Scenes/Level_2.unity
     guid: 2cda990e2423bbf4892e6590ba056729

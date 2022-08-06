@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HighScoreSing : MonoBehaviour
 {   
@@ -17,6 +18,7 @@ public class HighScoreSing : MonoBehaviour
     private int hours = 0;
     private int days = 0;
     public int damageAmount = 40;
+    public Text scoreText;
     public static HighScoreSing Instance{
         get
         {
@@ -31,7 +33,7 @@ public class HighScoreSing : MonoBehaviour
             return _Instance;
         }
     }
-   
+
     public void Update(){
         seconds = seconds + Time.deltaTime;
     }
@@ -55,7 +57,13 @@ public class HighScoreSing : MonoBehaviour
      public void QuestionRight(){
         questionTotal ++;
         questionsRight ++;
+        //scoreText.text = "Highscore: " + questionsRight.ToString();
     }
+
+    public int GetTotalPoints() {
+        return questionsRight;
+    }
+    
       public void QuestionWrong(){
         questionTotal ++;
     }

@@ -21,6 +21,7 @@ public class DialogManager : MonoBehaviour
     public TMP_Text textDialogueUI,nameDialogueUI;
     public TMP_Text textQuestionUI,nameQuestionUI;
     public TMP_Text[] buttonsQuestions;
+    public Text playerScore;
     
  
     // Start is called before the first frame update
@@ -31,6 +32,8 @@ public class DialogManager : MonoBehaviour
         playerMovement = player.GetComponent<PlayerMovement>();
         sentences = new Queue<string>();
         buttonTextQuestions = new List<string>();
+
+        questionsRight = HighScoreSing.Instance.GetTotalPoints();
     }
 
     public void StartQuestions(Questions question){

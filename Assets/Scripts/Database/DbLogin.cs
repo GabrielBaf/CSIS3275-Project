@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class DbLogin : MonoBehaviour
 {
    public void GoToMenu() {
-    SceneManager.LoadScene("SampleScene 1");
+    SceneManager.LoadScene("LogInScene");
    }
 
    public void GoToRegister() {
@@ -15,5 +15,13 @@ public class DbLogin : MonoBehaviour
 
    public void BackToLogin() {
       SceneManager.LoadScene("LogInScene");
+   }
+
+   public void BackToPlayScene() {
+      SceneManager.LoadScene("PlayScene");
+   }
+
+   public void GoToScoreBoardScene() {
+      SceneManager.LoadScene("ScoreScene");
    }
 }
