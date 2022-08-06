@@ -8,8 +8,10 @@ using System;
 
 public class DialogManager : MonoBehaviour
 {
+    public GameObject treelvl2_1,treelvl2_2;
     private int questionTotal,questionsRight;
-   
+   private SpriteRenderer spriteRenderer;
+   private PlayerMovement playerMovement;
     private Queue<string> sentences;
     private List<string> buttonTextQuestions;
     public GameObject dialogueUI,questionUI,player;
@@ -21,6 +23,8 @@ public class DialogManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = player.GetComponent<SpriteRenderer>();
+        playerMovement = player.GetComponent<PlayerMovement>();
         sentences = new Queue<string>();
         buttonTextQuestions = new List<string>();
     }
@@ -39,6 +43,7 @@ public class DialogManager : MonoBehaviour
        for(int i=0;i<buttonTextQuestions.Count;i++){
         buttonsQuestions[i].text = buttonTextQuestions[i];
        }
+       buttonTextQuestions.Clear();
     }
    public void StartDialogue(Dialogue dialogue){
     dialogueUI.SetActive(true);
@@ -66,14 +71,16 @@ public class DialogManager : MonoBehaviour
   public void EndDialogue(){
     dialogueUI.SetActive(false);
     Time.timeScale = 1f;
-    Debug.Log("End");
+    
    }
    public void RightAnswer(){
-    BattleHandler.healerUnlocked = true;
+    //BattleHandler.healerUnlocked = true;
+    
+    Time.timeScale = 1f;
     questionTotal =+ 1;
     questionsRight =+1;
     textQuestionUI.text = "You got it right!!!!!";
-    Invoke("ChangeScene", 2.5f);
+    Invoke("ChangeScene", 2f);
    }
   public void WrongAnswer(){
     
@@ -83,9 +90,11 @@ public class DialogManager : MonoBehaviour
    
    }
    public void ChangeScene(){
-    //player.SetActive(false);
-    
     questionUI.SetActive(false);
-    SceneManager.LoadScene("GameScene_TurnBattleSystem", LoadSceneMode.Additive);
+    SceneManager.LoadScene("GameScene_TurnBattleSystem");
+   
+   }
+   public void BackScene(){
+   
    }
 }

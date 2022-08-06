@@ -1,5 +1,4 @@
 
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -98,7 +97,7 @@ public class CharacterBattle : MonoBehaviour {
 
     public void Damage(CharacterBattle attacker, int damageAmount) {
         healthSystem.Damage(damageAmount);
-        //CodeMonkey.CMDebug.TextPopup("Hit " + healthSystem.GetHealthAmount(), GetPosition());
+       
         Vector3 dirFromAttacker = (GetPosition() - attacker.GetPosition()).normalized;
 
         DamagePopup.Create(GetPosition(), damageAmount, false);
@@ -146,6 +145,43 @@ public class CharacterBattle : MonoBehaviour {
                 
             });
         });
+    }
+    public void SpecialAttackTank(CharacterBattle targetCharacterBattle,CharacterBattle targetCharacterBattle2,CharacterBattle targetCharacterBattle3, Action onAttackComplete) {
+        Vector3 slideTargetPosition = targetCharacterBattle.GetPosition() + (GetPosition() - targetCharacterBattle.GetPosition()).normalized * 10f;
+        Vector3 startingPosition = GetPosition();
+        int damageAmount;
+        // Slide to Target
+        SlideToPosition(slideTargetPosition, () => {
+            // Arrived at Target, attack him
+            state = State.Busy;
+            Vector3 attackDir = (targetCharacterBattle.GetPosition() - GetPosition()).normalized;
+            characterBase.PlayAnimAttack(attackDir, () => {
+
+                int damageAmount = 20;
+                
+                targetCharacterBattle.Damage(this, damageAmount);
+                targetCharacterBattle2.Damage(this, damageAmount);
+                targetCharacterBattle3.Damage(this, damageAmount);
+                }, () => {
+                // Attack completed, slide back
+                SlideToPosition(startingPosition, () => {
+                    // Slide back completed, back to idle
+                    state = State.Idle;
+                    characterBase.PlayAnimIdle(attackDir);
+                    onAttackComplete();
+                });
+                
+            });
+        });
+    }
+     public void SpecialAttackHealer(CharacterBattle targetCharacterBattle, Action onAttackComplete) {
+        Vector3 slideTargetPosition = targetCharacterBattle.GetPosition() + (GetPosition() - targetCharacterBattle.GetPosition()).normalized * 10f;
+        Vector3 startingPosition = GetPosition();
+        int damageAmount = -50;
+        targetCharacterBattle.Damage(this, damageAmount);
+        state = State.Idle;
+        onAttackComplete();        
+                
     }
      public void SpecialAttack(CharacterBattle targetCharacterBattle, Action onAttackComplete) {
         Vector3 slideTargetPosition = targetCharacterBattle.GetPosition() + (GetPosition() - targetCharacterBattle.GetPosition()).normalized * 10f;

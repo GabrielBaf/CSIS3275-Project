@@ -5,6 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - player: {fileID: 1713817009636909225, guid: 274fe40ea18125641b3836327c1b4fc3, type: 3}
+  - dialogueObj: {fileID: 6636320281946776156, guid: e2a36f26d7fa7db4580d95fb999dc209, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

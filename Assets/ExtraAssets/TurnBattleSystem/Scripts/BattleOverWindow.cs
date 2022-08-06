@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BattleOverWindow : MonoBehaviour {
-    public GameObject player;
+  
     private static BattleOverWindow instance;
+   
 
     private void Awake() {
+       
         instance = this;
         Hide();
     }
@@ -31,7 +33,7 @@ public class BattleOverWindow : MonoBehaviour {
     }
     public void BackToScene(){
         //player.SetActive(true);
-        SceneManager.UnloadScene("GameScene_TurnBattleSystem");
+       
     }
 
 }
