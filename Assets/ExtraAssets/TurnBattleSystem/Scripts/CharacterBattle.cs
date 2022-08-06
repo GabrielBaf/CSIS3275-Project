@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +15,7 @@ public class CharacterBattle : MonoBehaviour {
     private GameObject selectionCircleGameObject;
     private HealthSystem healthSystem;
     private World_Bar healthBar;
+    public int damageAmount = HighScoreSing.Instance.GetDmg();
 
     private enum State {
         Idle,
@@ -32,7 +33,7 @@ public class CharacterBattle : MonoBehaviour {
     private void Start() {
     }
 
-    public void Setup(bool isPlayerTeam,bool isHealer,bool isEnemy2,bool isEnemy3) {
+    public void Setup(bool isPlayerTeam,bool isHealer,bool isTank,bool isEnemy2,bool isEnemy3) {
         this.isPlayerTeam = isPlayerTeam;
         this.isHealer = isHealer;
         if (isPlayerTeam) {
@@ -41,6 +42,9 @@ public class CharacterBattle : MonoBehaviour {
             if(isHealer){
                  characterBase.SetAnimsSwordTwoHandedBack();
                 characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().healerSpritesheet;
+            }else if(isTank){
+                characterBase.SetAnimsSwordTwoHandedBack();
+                characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().tankSpritesheet;
             }
         } else {
             if(isEnemy2){
@@ -104,8 +108,6 @@ public class CharacterBattle : MonoBehaviour {
         characterBase.SetColorTint(new Color(1, 0, 0, 1f));
         Blood_Handler.SpawnBlood(GetPosition(), dirFromAttacker);
 
-        CodeMonkey.Utils.UtilsClass.ShakeCamera(1f, .1f);
-
         if (healthSystem.IsDead()) {
             // Died
             characterBase.PlayAnimLyingUp();
@@ -119,7 +121,7 @@ public class CharacterBattle : MonoBehaviour {
     public void Attack(CharacterBattle targetCharacterBattle, Action onAttackComplete) {
         Vector3 slideTargetPosition = targetCharacterBattle.GetPosition() + (GetPosition() - targetCharacterBattle.GetPosition()).normalized * 10f;
         Vector3 startingPosition = GetPosition();
-        int damageAmount;
+        
         // Slide to Target
         SlideToPosition(slideTargetPosition, () => {
             // Arrived at Target, attack him
@@ -128,10 +130,8 @@ public class CharacterBattle : MonoBehaviour {
             characterBase.PlayAnimAttack(attackDir, () => {
                 // Target hit
                 if (isPlayerTeam) {
-                //int damageAmount = UnityEngine.Random.Range(20, 50);
-                damageAmount = UnityEngine.Random.Range(35,55);
                 }else{
-                damageAmount = UnityEngine.Random.Range(20,35); 
+                damageAmount = UnityEngine.Random.Range(30,40); 
                 }
                 targetCharacterBattle.Damage(this, damageAmount);
                 }, () => {
@@ -149,7 +149,7 @@ public class CharacterBattle : MonoBehaviour {
     public void SpecialAttackTank(CharacterBattle targetCharacterBattle,CharacterBattle targetCharacterBattle2,CharacterBattle targetCharacterBattle3, Action onAttackComplete) {
         Vector3 slideTargetPosition = targetCharacterBattle.GetPosition() + (GetPosition() - targetCharacterBattle.GetPosition()).normalized * 10f;
         Vector3 startingPosition = GetPosition();
-        int damageAmount;
+        
         // Slide to Target
         SlideToPosition(slideTargetPosition, () => {
             // Arrived at Target, attack him
@@ -157,7 +157,7 @@ public class CharacterBattle : MonoBehaviour {
             Vector3 attackDir = (targetCharacterBattle.GetPosition() - GetPosition()).normalized;
             characterBase.PlayAnimAttack(attackDir, () => {
 
-                int damageAmount = 20;
+                damageAmount = 30;
                 
                 targetCharacterBattle.Damage(this, damageAmount);
                 targetCharacterBattle2.Damage(this, damageAmount);
@@ -177,7 +177,7 @@ public class CharacterBattle : MonoBehaviour {
      public void SpecialAttackHealer(CharacterBattle targetCharacterBattle, Action onAttackComplete) {
         Vector3 slideTargetPosition = targetCharacterBattle.GetPosition() + (GetPosition() - targetCharacterBattle.GetPosition()).normalized * 10f;
         Vector3 startingPosition = GetPosition();
-        int damageAmount = -50;
+        damageAmount = -50;
         targetCharacterBattle.Damage(this, damageAmount);
         state = State.Idle;
         onAttackComplete();        

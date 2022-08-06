@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ExtraAssets/TurnBattleSystem/GameScene_TurnBattleSystem.unity
     guid: c148f78900d5bee4ebbb8533ccb33202
+  - enabled: 1
+    path: Assets/Scenes/Scene2.unity
+    guid: e87dfbac48941b541a9722d3dc30f9ab
   m_configObjects: {}

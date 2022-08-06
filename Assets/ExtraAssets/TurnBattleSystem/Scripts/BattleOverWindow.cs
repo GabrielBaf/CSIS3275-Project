@@ -8,8 +8,9 @@ using UnityEngine.UI;
 
 public class BattleOverWindow : MonoBehaviour {
   
+    
     private static BattleOverWindow instance;
-   
+    public int levels=0;
 
     private void Awake() {
        
@@ -32,8 +33,7 @@ public class BattleOverWindow : MonoBehaviour {
         instance.Show(winnerString);
     }
     public void BackToScene(){
-        //player.SetActive(true);
-       
+       HighScoreSing.Instance.ChangeLevel();
     }
 
 }

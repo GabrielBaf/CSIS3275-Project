@@ -7,7 +7,9 @@ using TMPro;
 using System;
 
 public class DialogManager : MonoBehaviour
-{
+{   
+   
+    
     public GameObject treelvl2_1,treelvl2_2;
     private int questionTotal,questionsRight;
    private SpriteRenderer spriteRenderer;
@@ -23,6 +25,7 @@ public class DialogManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         spriteRenderer = player.GetComponent<SpriteRenderer>();
         playerMovement = player.GetComponent<PlayerMovement>();
         sentences = new Queue<string>();
@@ -75,12 +78,23 @@ public class DialogManager : MonoBehaviour
    }
    public void RightAnswer(){
     //BattleHandler.healerUnlocked = true;
-    
+    HighScoreSing.Instance.SaveDmgUp();
     Time.timeScale = 1f;
     questionTotal =+ 1;
     questionsRight =+1;
     textQuestionUI.text = "You got it right!!!!!";
     Invoke("ChangeScene", 2f);
+    if(treelvl2_1.activeInHierarchy  == false){
+        HighScoreSing.Instance.enemy2_1 = false;
+    }else if(treelvl2_2.activeInHierarchy  == false){
+        HighScoreSing.Instance.enemy2_2 = false;
+    }else if(treelvl2_2.activeInHierarchy  == false && treelvl2_1.activeInHierarchy == false){
+        HighScoreSing.Instance.enemy2_1 = false;
+        HighScoreSing.Instance.enemy2_2 = false;
+    }else{
+        HighScoreSing.Instance.enemy2_1 = true;
+        HighScoreSing.Instance.enemy2_2 = true;
+    }
    }
   public void WrongAnswer(){
     
@@ -94,7 +108,5 @@ public class DialogManager : MonoBehaviour
     SceneManager.LoadScene("GameScene_TurnBattleSystem");
    
    }
-   public void BackScene(){
    
-   }
 }
