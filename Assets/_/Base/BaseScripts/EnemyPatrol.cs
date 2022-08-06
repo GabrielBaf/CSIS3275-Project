@@ -22,8 +22,12 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision) {
-        transform.localScale = new Vector2(-(Mathf.Sign(rb.velocity.x)), transform.localScale.y);
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.name == "PatrollingUp") {
+            transform.localScale = new Vector2(-(Mathf.Sign(rb.velocity.x)), transform.localScale.y);
+        } else {
+            transform.localScale = new Vector2((Mathf.Sign(rb.velocity.x)), transform.localScale.y);
+        }
     }
 
     private bool isFacingDown() {
