@@ -877,6 +877,7 @@ GameObject:
   - component: {fileID: 756521197}
   - component: {fileID: 756521198}
   - component: {fileID: 756521199}
+  - component: {fileID: 756521200}
   m_Layer: 0
   m_Name: MenuHandler
   m_TagString: Untagged
@@ -929,6 +930,18 @@ MonoBehaviour:
   passwordField: {fileID: 1939805180}
   score: {fileID: 0}
   submitButton: {fileID: 1808896575}
+--- !u!114 &756521200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756521196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c99b4335fe77b47ba5b9f3268e8aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &792844584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,7 +1643,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 756521200}
         m_TargetAssemblyTypeName: DbLogin, Assembly-CSharp
         m_MethodName: GoToRegister
         m_Mode: 1
