@@ -82,7 +82,6 @@ public class DialogManager : MonoBehaviour
     
    }
    public void RightAnswer(){
-    //BattleHandler.healerUnlocked = true;
     Time.timeScale = 1f;
     HighScoreSing.Instance.QuestionRight();
     HighScoreSing.Instance.SaveDmgUp();
