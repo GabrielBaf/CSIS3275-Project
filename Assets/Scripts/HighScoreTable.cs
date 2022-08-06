@@ -11,63 +11,57 @@ using UnityEngine.SceneManagement;
 
 public class HighScoreTable : MonoBehaviour
 {
-    private Transform entryContainer;
-    private Transform entryTemplate;
-    private List<HighScore> highScoreEntryList;
-    private List<Transform> highScoreEntryTransformList;
+    public Transform entryContainer;
+    public Transform entryTemplate;
 
-    private void Awake() {
-        entryContainer = transform.Find("HighscoreEntryContainer");
-        entryTemplate = transform.Find("HighscoreEntreyTemplate");
+    
+    void Start() {
+        StartCoroutine(GetRequest("http://localhost/sqlconnect/GetScores.php"));
+    }
+    private void Awake(){
+        entryContainer = transform.Find("highScoreEntryContainer");
+        entryTemplate = transform.Find("highScoreEntryTemplate");
 
         entryTemplate.gameObject.SetActive(false);
-        float templateHeight = 20f;
-
-        highScoreEntryList = new List<HighScore>() {
-            new HighScore {score = www.score, name = www.name}
-        };
-
-
-        foreach (HighScore highScore in highScoreEntryList)
-        {
-            CreateHighScoreEntryTransform(highScore, entryContainer, highScoreEntryTransformList);
-        }
-
     }
 
-    private void CreateHighScoreEntryTransform(HighScore highScoreEntry, Transform container, List<Transform> transformList) {
-        Transform entryTransform = Instantiate(entryTemplate, container);
-        RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
-        entryRectTransform.anchoredPosition = new Vector2(0, -templateHeight * transformList.Count);
-        entryTransform.gameObject.SetActive(true);
-
-        IEnumerator GetScore() {
-            WWWForm form = new WWWForm();
-            form.ReadField("score", score.text);
-            WWW www = new WWW("http://localhost/sqlconnect/GetScores.php", form);
-            Debug.Log(www);
-            yield return www;
-
-            int rank = transformList.Count + 1;
-            string rankString;
-
-            switch(rank) {
-            case 1: rankString = "1ST";break;
-            case 2: rankString = "2ND";break;
-            case 3: rankString = "3RD";break;
-            default: rankString = rank + "TH"; break;
-        }
-
-        entryTransform.Find("posText").GetComponent<Text>().text = rankString;
-        entryTransform.Find("scoreText").GetComponent<Text>().text = www.score.ToString();
-        entryTransform.Find("nameText").GetComponent<Text>().text = www.name.ToString();
-
-        transformList.Add(entryTransform);
-        }
+    void Update() {
+        
     }
 
-    private class HighScore {
-        public int score;
-        public string name;
+    IEnumerator GetRequest(string uri) {
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri)) {
+            yield return webRequest.SendWebRequest();
+            string[] pages = uri.Split('/');
+            int page = pages.Length - 1;
+
+            switch(webRequest.result) {
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                    Debug.Log(pages[page] + ": Error: " + webRequest.error);
+                    break;
+
+                case UnityWebRequest.Result.ProtocolError:
+                    Debug.Log(pages[page] + " : HTTP Error: " + webRequest.error);
+                    break;
+                
+                case UnityWebRequest.Result.Success:
+                    string rawResponse = webRequest.downloadHandler.text;
+                    string[] users = rawResponse.Split('*');
+
+                    for(int i = 0; i < users.Length; i++) {
+                        if(users[i] != "") {
+                            Transform entryTransform = Instantiate(entryTemplate,entryContainer);
+                            RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
+                            entryRectTransform.anchoredPosition = new Vector2(0, -20f * i);
+                            entryTransform.gameObject.SetActive(true);
+                            string[] userInfo = users[i].Split(',');
+                            Debug.Log("Username: " + userInfo[0] + " Score: " + userInfo[1]);
+                        }
+                    }
+
+                    break;
+            }
+        }
     }
 }
