@@ -22,7 +22,7 @@ public class DbConection : MonoBehaviour
 
     public void CallLogin() {
         StartCoroutine(LoginPlayer());
-        SceneManager.LoadScene("SampleScene 1");
+        SceneManager.LoadScene("Scene1");
         // if(DbManager.loggedIn) {
         // }
     }
